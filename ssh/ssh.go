@@ -7,12 +7,12 @@ import (
 )
 
 type SSH struct {
-	Host        string   `yaml:"Host"`
-	Hostname    string   `yaml:"Hostname"`
-	User        string   `yaml:"User,omitempty"`
-	Password    string   `yaml:"Password,omitempty"`
-	PreScripts  []string `yaml:"PreScripts,omitempty"`
-	PostScripts []string `yaml:"PostScripts,omitempty"`
+	Host        string      `yaml:"Host"`
+	Hostname    string      `yaml:"Hostname"`
+	User        string      `yaml:"User,omitempty"`
+	Password    string      `yaml:"Password,omitempty"`
+	PreScripts  interface{} `yaml:"PreScripts,omitempty"`
+	PostScripts interface{} `yaml:"PostScripts,omitempty"`
 }
 
 func (s *SSH) String() string {
