@@ -1,0 +1,4 @@
+{
+    "go.goroot": "/opt/gvm/gos/go1.18",
+    "go.gopath": "/opt/gvm/pkgsets/go1.18/global"
+}
