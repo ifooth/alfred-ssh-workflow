@@ -16,3 +16,5 @@
 
 .alfred
 alfred-ssh-workflow
+*.alfredworkflow
+*.zip

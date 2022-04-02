@@ -1,0 +1,6 @@
+data:
+  - provider: ssh
+    path: ./etc/ssh.yml
+
+  - provider: sshconfig
+    path: ~/.ssh/config

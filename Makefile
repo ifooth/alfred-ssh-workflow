@@ -20,7 +20,13 @@ run:
 	export alfred_workflow_bundleid="com.ifooth.alfred-ssh-workflow" && \
 	export alfred_workflow_cache="./.alfred/cache" && \
 	export alfred_workflow_data="./.alfred/data" && \
+	export config="./etc/config.yml" && \
     go run main.go
+
+.PHONY: build-workflow
+build-workflow:
+	${GOBUILD} -o alfred-ssh-workflow *.go
+	zip sshmgr.alfredworkflow alfred-ssh-workflow info.plist
 
 .PHONY: test
 test:
