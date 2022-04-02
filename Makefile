@@ -13,20 +13,19 @@ tidy:
 
 .PHONY: build
 build:
-	${GOBUILD} -o alfred-ssh-workflow *.go
+	${GOBUILD} -o ./output/alfred-ssh-workflow *.go
 
 .PHONY: run
 run:
 	export alfred_workflow_bundleid="com.ifooth.alfred-ssh-workflow" && \
-	export alfred_workflow_cache="./.alfred/cache" && \
-	export alfred_workflow_data="./.alfred/data" && \
+	export alfred_workflow_cache="./output/cache" && \
+	export alfred_workflow_data="./output/data" && \
 	export config="./etc/config.yml" && \
     go run main.go
 
 .PHONY: build-workflow
-build-workflow:
-	${GOBUILD} -o alfred-ssh-workflow *.go
-	zip sshmgr.alfredworkflow alfred-ssh-workflow info.plist
+build-workflow: build
+	zip ./output/sshmgr.alfredworkflow alfred-ssh-workflow info.plist
 
 .PHONY: test
 test:
