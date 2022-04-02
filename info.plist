@@ -158,6 +158,11 @@
 			<integer>210</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>config</key>
+		<string>~/.config/sshmgr/config.yml</string>
+	</dict>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
