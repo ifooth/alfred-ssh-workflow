@@ -2,11 +2,22 @@ package config
 
 import (
 	"os"
+	"path/filepath"
 
 	aw "github.com/deanishe/awgo"
-	"github.com/ifooth/alfred-ssh-workflow/ssh"
+	homedir "github.com/mitchellh/go-homedir"
 	"gopkg.in/yaml.v3"
+
+	"github.com/ifooth/alfred-ssh-workflow/ssh"
 )
+
+func AbsPath(path string) (string, error) {
+	path, err := homedir.Expand(path)
+	if err != nil {
+		return "", err
+	}
+	return filepath.Abs(path)
+}
 
 type SSHConfig struct {
 	Provider string `yaml:"provider"`
@@ -14,7 +25,12 @@ type SSHConfig struct {
 }
 
 func (c *SSHConfig) HandleItem(wf *aw.Workflow) error {
-	data, err := os.ReadFile(c.Path)
+	path, err := AbsPath(c.Path)
+	if err != nil {
+		return err
+	}
+
+	data, err := os.ReadFile(path)
 	if err != nil {
 		return err
 	}
@@ -35,6 +51,10 @@ type Config struct {
 }
 
 func ReadConfig(path string) (*Config, error) {
+	path, err := AbsPath(path)
+	if err != nil {
+		return nil, err
+	}
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return nil, err
