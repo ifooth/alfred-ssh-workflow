@@ -2,7 +2,11 @@ package main
 
 // Package is called aw
 import (
+	"fmt"
+
 	aw "github.com/deanishe/awgo"
+
+	"github.com/ifooth/alfred-ssh-workflow/config"
 )
 
 // Workflow is the main API
@@ -21,8 +25,19 @@ func init() {
 
 // Your workflow starts here
 func run() {
-	// Add a "Script Filter" result
-	wf.NewItem("First result!")
+	conf_path := cfg.GetString("config")
+	conf, err := config.ReadConfig(conf_path)
+	if err != nil {
+		panic(err)
+	}
+
+	for _, s := range conf.SSHConfigs {
+		fmt.Println("lei1")
+		if err := s.HandleItem(wf); err != nil {
+			fmt.Println("lei2")
+			panic(err)
+		}
+	}
 
 	// Send results to Alfred
 	wf.SendFeedback()

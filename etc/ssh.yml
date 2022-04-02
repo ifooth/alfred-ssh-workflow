@@ -1,0 +1,10 @@
+- Host: host1
+  Hostname: 127.0.0.1
+  User: root
+
+- Host: host2
+  Hostname: 127.0.0.2
+  User: root
+  PostScripts:
+      - cd /tmp
+      - echo "login success"

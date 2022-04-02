@@ -1,8 +1,11 @@
-module github.ccom/ifooth/alfred-ssh-workflow
+module github.com/ifooth/alfred-ssh-workflow
 
 go 1.18
 
-require github.com/deanishe/awgo v0.29.1
+require (
+	github.com/deanishe/awgo v0.29.1
+	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+)
 
 require (
 	github.com/magefile/mage v1.11.0 // indirect
