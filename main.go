@@ -2,8 +2,6 @@ package main
 
 // Package is called aw
 import (
-	"fmt"
-
 	aw "github.com/deanishe/awgo"
 )
 
@@ -33,7 +31,5 @@ func run() {
 func main() {
 	// Wrap your entry point with Run() to catch and log panics and
 	// show an error in Alfred instead of silently dying
-	config := cfg.GetString("config")
-	fmt.Println("lei", config)
 	wf.Run(run)
 }

@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.ifooth.alfred-ssh-workflow</string>
-	<key>category</key>
-	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>88D53AF4-C8CD-4511-8C0D-741BD7B3E185</key>
@@ -89,7 +87,7 @@
 				<key>runningsubtext</key>
 				<string>Searching for "{query}"</string>
 				<key>script</key>
-				<string>alfred-ssh-workflow "{query}"</string>
+				<string>./alfred-ssh-workflow "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -118,13 +116,13 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>osascript -l JavaScript iterm_ssh.js "{query}"</string>
+				<string>./iterm_ssh.js "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string>/Users/joelei/IFOOTH/sshmgr-py/sshmgr/ssh_login.js</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>7</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>

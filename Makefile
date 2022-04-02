@@ -13,7 +13,7 @@ tidy:
 
 .PHONY: build
 build:
-	${GOBUILD} -o ./output/alfred-ssh-workflow *.go
+	GOOS=darwin GOARCH=arm64 ${GOBUILD} -o ./output/alfred-ssh-workflow *.go
 
 .PHONY: run
 run:
@@ -25,7 +25,13 @@ run:
 
 .PHONY: build-workflow
 build-workflow: build
-	zip ./output/sshmgr.alfredworkflow alfred-ssh-workflow info.plist
+	rm -rf ./output/workflow && \
+	mkdir -p ./output/workflow && \
+	cd ./output/workflow && \
+	cp ../../info.plist . && \
+	cp ../../icon.png . && \
+	cp ../alfred-ssh-workflow . && \
+	zip sshmgr.alfredworkflow info.plist icon.png alfred-ssh-workflow
 
 .PHONY: test
 test:
