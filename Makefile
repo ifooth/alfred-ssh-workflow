@@ -1,7 +1,7 @@
 GOPATH:=$(shell go env GOPATH)
 VERSION=$(shell git describe --tags || echo "unknown version")
 BUILDTIME=$(shell date -u)
-GOBUILD=CGO_ENABLED=0 go build -trimpath
+GOBUILD=CGO_ENABLED=0 go build -trimpath -ldflags '-w -s -buildid='
 
 .PHONY: update
 update:
