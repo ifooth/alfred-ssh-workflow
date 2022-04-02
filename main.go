@@ -2,8 +2,6 @@ package main
 
 // Package is called aw
 import (
-	"fmt"
-
 	aw "github.com/deanishe/awgo"
 
 	"github.com/ifooth/alfred-ssh-workflow/config"
@@ -32,9 +30,7 @@ func run() {
 	}
 
 	for _, s := range conf.SSHConfigs {
-		fmt.Println("lei1")
 		if err := s.HandleItem(wf); err != nil {
-			fmt.Println("lei2")
 			panic(err)
 		}
 	}

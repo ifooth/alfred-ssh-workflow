@@ -21,11 +21,11 @@ func (s *SSH) String() string {
 
 // Arg 生成对应的query
 func (s *SSH) GetArg() string {
-	return ""
+	return s.Host
 }
 
 func (s *SSH) GetAutocomplete() string {
-	return ""
+	return s.Host
 }
 
 func (s *SSH) AddItem(wf *aw.Workflow) {
@@ -33,5 +33,6 @@ func (s *SSH) AddItem(wf *aw.Workflow) {
 		Copytext(s.Hostname).
 		Largetype(s.Hostname).
 		Icon(aw.IconBurn).Arg(s.GetArg()).
-		Autocomplete(s.GetAutocomplete())
+		Autocomplete(s.GetAutocomplete()).
+		Valid(true)
 }
