@@ -32,7 +32,7 @@ func (s *SSH) AddItem(wf *aw.Workflow) {
 	wf.NewItem(s.Host).
 		Copytext(s.Hostname).
 		Largetype(s.Hostname).
-		Icon(aw.IconBurn).Arg(s.GetArg()).
+		Icon(aw.IconWorkflow).Arg(s.GetArg()).
 		Autocomplete(s.GetAutocomplete()).
 		Valid(true)
 }
