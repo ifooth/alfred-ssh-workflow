@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	aw "github.com/deanishe/awgo"
 
 	"github.com/ifooth/alfred-ssh-workflow/config"
@@ -30,6 +32,19 @@ func run() {
 		if err := s.HandleItem(wf); err != nil {
 			panic(err)
 		}
+	}
+
+	args := wf.Args()
+	log.Printf("args: %s", wf.Args())
+
+	if len(args) > 0 && args[0] != "" {
+		query := args[0]
+		wf.Filter(query)
+	}
+
+	if wf.IsEmpty() {
+		wf.WarnEmpty("No matching found", "")
+		return
 	}
 
 	// Send results to Alfred
