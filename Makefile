@@ -29,9 +29,10 @@ build-workflow: build
 	mkdir -p ./output/workflow && \
 	cd ./output/workflow && \
 	cp ../../info.plist . && \
+	cp ../../iterm_ssh.js . && \
 	cp ../../icon.png . && \
 	cp ../alfred-ssh-workflow . && \
-	zip sshmgr.alfredworkflow info.plist icon.png alfred-ssh-workflow
+	zip sshmgr.alfredworkflow info.plist iterm_ssh.js icon.png alfred-ssh-workflow
 
 .PHONY: test
 test:
