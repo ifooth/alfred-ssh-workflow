@@ -90,8 +90,6 @@
 				<string>./alfred-ssh-workflow "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
-				<key>scriptfile</key>
-				<string>/Users/joelei/IFOOTH/sshmgr-py/sshmgr/ssh_filter.py</string>
 				<key>subtext</key>
 				<string>Search for "{query}"</string>
 				<key>title</key>
@@ -119,10 +117,8 @@
 				<string>./iterm_ssh.js "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
-				<key>scriptfile</key>
-				<string>/Users/joelei/IFOOTH/sshmgr-py/sshmgr/ssh_login.js</string>
 				<key>type</key>
-				<integer>7</integer>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
