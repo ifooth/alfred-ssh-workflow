@@ -48,17 +48,22 @@ func (s *SSH) GetPostScripts() []string {
 	return GetSliceString(s.PostScripts)
 }
 
+func (s *SSH) GetHost() string {
+	user := s.User
+	if user == "" {
+		user = "root"
+	}
+	return fmt.Sprintf("%s@%s", user, s.Hostname)
+
+}
+
 // Arg 生成对应的query
 func (s *SSH) GetArg() string {
 	_query := []string{}
 	preScripts := s.GetPreScripts()
 	_query = append(_query, preScripts...)
 
-	user := s.User
-	if user == "" {
-		user = "root"
-	}
-	host := fmt.Sprintf("%s@%s", user, s.Hostname)
+	host := s.GetHost()
 	sshCmd := fmt.Sprintf("ssh %s", host)
 	if len(preScripts) > 0 {
 		sshCmd = fmt.Sprintf("waitdone:ssh %s", s.Hostname)
@@ -89,6 +94,7 @@ func (s *SSH) GetAutocomplete() string {
 
 func (s *SSH) AddItem(wf *aw.Workflow) {
 	wf.NewItem(s.Host).
+		Subtitle(s.GetHost()).
 		Copytext(s.Hostname).
 		Largetype(s.Hostname).
 		Icon(aw.IconWorkflow).Arg(s.GetArg()).
