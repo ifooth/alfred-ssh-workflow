@@ -97,6 +97,7 @@ func (s *SSH) AddItem(wf *aw.Workflow) {
 		Subtitle(s.GetHost()).
 		Copytext(s.Hostname).
 		Largetype(s.Hostname).
+		Var("Hostname", s.Hostname). // 提供复制内容
 		Icon(aw.IconWorkflow).Arg(s.GetArg()).
 		Autocomplete(s.GetAutocomplete()).
 		Valid(true)
