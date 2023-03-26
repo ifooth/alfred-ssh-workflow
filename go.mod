@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/deanishe/awgo v0.29.1
 	github.com/mitchellh/go-homedir v1.1.0
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
